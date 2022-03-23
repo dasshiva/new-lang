@@ -16,8 +16,13 @@ void set_target(const char* line) {
 Tokens* get_token() {
     if(!target || (currentindex == length))
        return NULL;
-    
-    for (; currentindex < getlen(target); currentindex++) {
-        if (*iter == ' ') {}
+    string* str = init("");
+    for (; currentindex < getlen(target); currentindex++, iter++) {
+        if (*iter == ' ') {
+		currentindex++;
+		iter++;
+		return new_token(str);
+	}
+	append_char(str, *iter);
     }
 }

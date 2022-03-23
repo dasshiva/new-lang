@@ -18,8 +18,15 @@ string* init (const char* cont) {
 	 * reallocations while appending to it */
 	str->max_sz = str->len + 20;
 	str->buf = (char*) malloc(sizeof (char) * str->max_sz);
-	str->buf[str->len-1] = '\0';
-	strcpy(str->buf,cont);
+	str->buf[str->len] = '\0';
+	strcpy(str->buf, cont);
+
+	/* Since we get some of the input from getline() which 
+	 * preserves the new-line character at the end, we remove 
+	 * it here */
+
+	if (str->buf[str->len - 1] == '\n') 
+		str->buf[str->len - 1] = '\0';
 	return str;
 }
 

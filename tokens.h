@@ -12,9 +12,10 @@ typedef enum _tokens {
 
 typedef struct __tokens {
     Token tk;
-    string* st;
-    int ival;
+    string* str;
+    long ival;
     double dval;
 } Tokens;
 
+Tokens* new_token (string* str);
 #endif
