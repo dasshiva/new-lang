@@ -1,5 +1,5 @@
-#include "tokens.h"
-#include "string.h"
+#include <SimpleTokens.h>
+#include <SimpleString.h>
 
 #include <stdlib.h>
 #include <string.h>

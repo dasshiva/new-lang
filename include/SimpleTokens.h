@@ -1,7 +1,7 @@
 #ifndef _TOKENS_H_
 #define _TOKENS_H_
 
-#include "string.h"
+#include <SimpleString.h>
 typedef enum _tokens {
     K_VAR,
     O_ASSIGN,

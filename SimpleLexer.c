@@ -1,4 +1,4 @@
-#include "lexer.h"
+#include <SimpleLexer.h>
 #include <stddef.h>
 
 static string* target = NULL;

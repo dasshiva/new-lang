@@ -1,6 +1,6 @@
-#include "parser.h"
-#include "lexer.h"
-#include "tokens.h"
+#include <SimpleParser.h>
+#include <SimpleLexer.h>
+#include <SimpleTokens.h>
 
 static unsigned int line = 1;
 

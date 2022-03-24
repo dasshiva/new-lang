@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "string.h"
-#include "lexer.h"
+#include <SimpleString.h>
+#include <SimpleLexer.h>
 
 int main () {
 	size_t sz = 0;
