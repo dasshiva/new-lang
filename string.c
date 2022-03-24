@@ -9,7 +9,7 @@
  * @param cont the buffer from which the string is to be constructed
  * @return - a new string*
  */
-string* init (const char* cont) {
+string* New (const char* cont) {
 	string* str = (struct _str*) malloc (sizeof(struct _str));
 	str->len = strlen(cont);
 
@@ -46,7 +46,7 @@ static void extend(string* cont, size_t sz ) {
  * @param a the char to be appended to the string
  * @return the modified string
  */
-string* append_char (string* cont, char a) {
+string* AppendChar (string* cont, char a) {
 	cont->len++;
 	if (cont->max_sz == cont->len) 
 		extend(cont, 20);
@@ -60,7 +60,7 @@ string* append_char (string* cont, char a) {
  * @param target the character buffer whose contents will be appended (undefined behaviour if NULL)
  * @return the modified string
  */
-string* append_str(string* cont, const char* target) {
+string* AppendStr(string* cont, const char* target) {
 	cont->len += strlen (target);
 	if (cont->max_sz <= cont->len) 
 		extend(cont, (cont->len - cont->max_sz) + 20);
@@ -68,25 +68,18 @@ string* append_str(string* cont, const char* target) {
 	return cont;
 }
 
-/* Prints the internal buffer maintained by the string
- * @param str the string whose internal buffer has to be returned
- */
-void print (string* str) {
-	printf("%s",str->buf);
-}
-
 /* Returns the length of the string
  * @param str the string whose length needs to be printed
  * @return the length of the string
  */
-size_t getlen(string* str) {
+size_t Len (string* str) {
 	return str->len;
 }
 
 /* Frees all resources that were occupied by the string and sets str to NULL
  * @param str the string whose resources have to be freed
  */
-void destroy (string* str) {
+void Destroy (string* str) {
 	free(str->buf);
 	free(str);
 	str = NULL;
@@ -96,7 +89,7 @@ void destroy (string* str) {
  * @param str the string from which the iterator will be created from
  * @return the iterator to the beginning of the iternal buffer
 */
-iterator get_iterator (string* str){
+iterator GetIterator (string* str){
 	return str->buf;
 }
 
@@ -106,7 +99,7 @@ iterator get_iterator (string* str){
  * @return if index is more than or equal to the string's length then 0 is returned,
  * otherwise the character specified by the index is returned
  */
-char charat (string* str,index_t index) {
+char CharAt (string* str,index_t index) {
 	if (index >= str->len) 
 	    return 0;
 	return str->buf[index];

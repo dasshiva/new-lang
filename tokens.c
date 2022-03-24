@@ -4,12 +4,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-Tokens* new_token (string* str) {
+Tokens* NewToken (string* str) {
 	Tokens* tks = (Tokens*) malloc(sizeof(Tokens));
 	char* onfail;
-	iterator iter = get_iterator(str);
-	if (getlen(str) == 1) {
-		switch (charat(str, 0)) {
+	iterator iter = GetIterator(str);
+	if (Len(str) == 1) {
+		switch (CharAt(str, 0)) {
 			case '=' : tks->tk = O_ASSIGN; return tks;
 		}
 	}

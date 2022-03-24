@@ -6,12 +6,12 @@ int main () {
 	size_t sz = 0;
 	char* rd = NULL;
 	getline(&rd, &sz, stdin);
-	set_target(rd);
-
+	SetTarget(rd);
 	while (1) {
-		Tokens* tks = get_token();
+		Tokens* tks = GetToken();
 		if (!tks)
 			break;
 		printf("%d", tks->tk);
 	}
+
 }

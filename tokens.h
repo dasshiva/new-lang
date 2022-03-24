@@ -17,5 +17,5 @@ typedef struct __tokens {
     double dval;
 } Tokens;
 
-Tokens* new_token (string* str);
+Tokens* NewToken (string* str);
 #endif

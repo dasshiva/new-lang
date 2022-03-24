@@ -10,12 +10,12 @@ typedef struct _str {
 typedef char* iterator;
 typedef size_t index_t;
 
-string* init (const char* cont);
-string* append_char (string* cont, char a);
-string* append_str (string* cont, const char* target);
-size_t getlen (string* cont);
-void destroy(string* str);
-iterator get_iterator (string* str);
-char charat (string* str, size_t index);
+string* New (const char* cont);
+string* AppendChar (string* cont, char a);
+string* AppendStr (string* cont, const char* target);
+size_t Len (string* cont);
+void Destroy (string* str);
+iterator GetIterator (string* str);
+char CharAt (string* str, size_t index);
 
 #endif

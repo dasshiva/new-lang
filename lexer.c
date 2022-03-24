@@ -1,4 +1,3 @@
-#include "string.h"
 #include "tokens.h"
 #include <stddef.h>
 
@@ -6,23 +5,26 @@ static string* target = NULL;
 static index_t currentindex, length;
 static iterator iter = NULL;
 
-void set_target(const char* line) {
-    target = append_char(init(line),' ');
+void SetTarget(const char* line) {
+    target = AppendChar(New(line),' ');
     currentindex = 0;
-    length = getlen(target);
-    iter = get_iterator(target);
+    length = Len(target);
+    iter = GetIterator(target);
 }
 
-Tokens* get_token() {
+Tokens* GetToken() {
     if(!target || (currentindex == length))
        return NULL;
-    string* str = init("");
-    for (; currentindex < getlen(target); currentindex++, iter++) {
+    string* str = New("");
+    for (; currentindex < Len(target); currentindex++, iter++) {
         if (*iter == ' ') {
+		if (Len(str) == 0) // don't return if buffer is empty
+			continue;
 		currentindex++;
 		iter++;
-		return new_token(str);
+		return NewToken(str);
 	}
-	append_char(str, *iter);
+	AppendChar(str, *iter);
     }
+    return NewToken(str);
 }
