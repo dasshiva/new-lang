@@ -1,17 +1,19 @@
+#include <SimpleParser.h>
+
 #include <stdio.h>
-#include <SimpleString.h>
-#include <SimpleLexer.h>
+#include <errno.h>
+#include <string.h>
 
-int main () {
-	size_t sz = 0;
-	char* rd = NULL;
-	getline(&rd, &sz, stdin);
-	SetTarget(rd);
-	while (1) {
-		Tokens* tks = GetToken();
-		if (!tks)
-			break;
-		printf("%d", tks->tk);
+extern int errno;
+
+int main (int argc, char* argv[]) {
+	if (argc < 2)  
+		return ParseFile(stdin);
+	FILE* src = fopen(argv[1], "r");
+	if (!src) {
+		printf("Could not open file %s : %s", argv[1], strerror(errno));
+		return -1;
 	}
-
+	ParseFile(src);
+	return 0;
 }

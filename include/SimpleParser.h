@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-void ParseFile (FILE* src);
+int ParseFile (FILE* src);
 
 #endif

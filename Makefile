@@ -1,4 +1,4 @@
-CFLAGS = -Iinclude/ -Wall -Wextra 
+CFLAGS = -Iinclude/ -Wall -Wextra
 
 all: main tokens string lexer parser
 	$(CC) $(LDFLAGS) objs/main.o objs/tokens.o objs/string.o objs/lexer.o objs/parser.o -o bin/Simple

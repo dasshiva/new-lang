@@ -23,19 +23,19 @@ Tokens* NewToken (string* str) {
 		long ival = strtol(iter, &onfail, 10);
 		if (iter != onfail) {
 			tks->tk = L_INTEGER;
-			tks->ival = ival;
+			tks->vals.ival = ival;
 			return tks;
 		}
 
 		double dval = strtod(iter, &onfail);
 		if (iter!= onfail) {
 			tks->tk = L_DOUBLE;
-			tks->dval = dval;
+			tks->vals.dval = dval;
 			return tks;
 		}
 
 		tks->tk = L_STRING;
-		tks->str = str;
+		tks->vals.str = str;
 		return tks;
 	}
 }
